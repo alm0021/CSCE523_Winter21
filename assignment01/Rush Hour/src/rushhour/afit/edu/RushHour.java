@@ -20,7 +20,7 @@ public class RushHour
       char x[] = new char[2]; //temp variable used for file parsing
 
       //open board data file
-      File inputFile = new File("Data.txt");
+      File inputFile = new File("simple.txt");
       FileReader in = new FileReader(inputFile);
 
       //get number of boards from first line
@@ -65,7 +65,7 @@ public class RushHour
 
         // HERE: on the following line you need to have a search created, sending it the 
         // initial node.
-        search = new YOUR_SEARCH(board);
+        search = new BrdSearch(board);
 
         
         //start timer

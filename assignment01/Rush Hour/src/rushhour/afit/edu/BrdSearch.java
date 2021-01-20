@@ -2,11 +2,15 @@ package rushhour.afit.edu;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Hashtable;
 
 class BrdSearch implements Search
 {
     private Board board;
     private int count;
+    private boolean goalFound; // Have we found the goal?
+    private Queue<Board> q = new LinkedList<Board>();
+    private Hashtable<String, Integer> discoBoards = new Hashtable<String, Integer>();
 
     /**
      * Main constructor
@@ -16,6 +20,8 @@ class BrdSearch implements Search
     public BrdSearch(Board b)
     {
         this.board = b;
+        //Add start board to queue
+        q.offer(b);
     }
 
     /**
@@ -101,38 +107,41 @@ class BrdSearch implements Search
 
     public Move findMoves()
     {   
-        Board v = new Board(this.board);
-        LinkedList<Board> discoBoards = new LinkedList<Board>();
-        LinkedList<Move> solutions = new LinkedList<Move>();
-        Queue<Board> q = new LinkedList<Board>();
-        discoBoards.add(v);
+        //Board v = new Board(this.board);
+        //LinkedList<Board> discoBoards = new LinkedList<Board>();
+        //LinkedList<Move> solutions = new LinkedList<Move>();
+        //Queue<Board> q = new LinkedList<Board>();
+        //discoBoards.add(this.board);
         //Add start board to queue
-        q.add(v);
-        while (!q.isEmpty())
+        //q.add(this.board);
+        while (!goalFound)
         {
-            v = q.remove();
+            this.board = this.q.poll();
             this.count++; //visit node
             //Check is v is the goal board
-            if(goalBoard(v)){
-                return v.move_list;
+            if(this.board.isGoal()){
+                goalFound = true;
+                return this.board.move_list;
             }
             //Generate move list (children of v)
-            Move w_moves = v.genMoves();
+            Move v_moves = this.board.genMoves();
+            Move w_moves = v_moves;
             Board w = null;
             //Add v's children moves to the queue
-            while(w_moves.next != null){
-                w = new Board(v);
-                w.makeMove(w_moves);
-                if (!containsCopy(discoBoards, w)){
-                    discoBoards.add(w);
+            while(w_moves != null){
+                
+                this.board.makeMove(w_moves);
+                if (!discoBoards.containsKey(this.board.hashKey())){
+                    w = new Board(this.board);
+                    discoBoards.put(w.hashKey(),1);
                     //Set the the previous board of w to v?
-                    q.add(w);
-                    w_moves = w_moves.next;
+                    this.q.offer(w);
                 }
-                else{w_moves = w_moves.next;}
+                this.board.reverseMove(w_moves);
+                w_moves = w_moves.next;
             } 
         }
-        return v.move_list;
+        return null;
     }
 
     public long nodeCount()

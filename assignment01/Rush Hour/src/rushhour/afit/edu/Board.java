@@ -438,4 +438,30 @@ public class Board
       }
   }
 
+    /**
+   * Return true is board is in goal state
+   *
+   */
+  public boolean isGoal() {
+    Piece p = this.piece_list[this.findPiece("X0")];
+
+    if (p.name.equals("X0") && p.y == Board.BOARD_EXIT_Y && p.x == Board.BOARD_EXIT_X - 1) {
+      return true;
+    }
+    return false;
+  }
+
+    /**
+    * creates string representation of board for the visited list
+    *
+    * @return String resultant String representation of the board
+    */
+    public String hashKey() {
+      String outString = new String();
+      for (int i = 0; i < Board.BOARD_SIZE + 1; i++)
+        for (int j = 0; j < Board.BOARD_SIZE; j++)
+          outString = outString.concat(String.valueOf(this.theBoard[i][j]));
+      return outString;
+    }
+
 }

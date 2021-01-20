@@ -20,7 +20,7 @@ public class RushHour
       char x[] = new char[2]; //temp variable used for file parsing
 
       //open board data file
-      File inputFile = new File("simple.txt");
+      File inputFile = new File("hard.txt");
       FileReader in = new FileReader(inputFile);
 
       //get number of boards from first line

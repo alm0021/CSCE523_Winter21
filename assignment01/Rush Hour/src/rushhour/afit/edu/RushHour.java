@@ -22,6 +22,7 @@ public class RushHour
       //open board data file
       File inputFile = new File("hard.txt");
       FileReader in = new FileReader(inputFile);
+      System.out.println("Input file is " + inputFile.getName());
 
       //get number of boards from first line
       int numBoards = in.read() - 48;
@@ -67,7 +68,6 @@ public class RushHour
         // initial node.
         search = new BrdSearch(board);
 
-        
         //start timer
         startTime = System.currentTimeMillis();
         System.out.println("Started board " + boardCounter);

@@ -50,7 +50,7 @@ public class LOAGUI extends JApplet {
     add(lblNewLabel_1, gbc_lblNewLabel_1);
 
     status = new JLabel("Current Status:",
-        JLabel.CENTER);
+            JLabel.CENTER);
     GridBagConstraints gbc_lblStatus = new GridBagConstraints();
     gbc_lblStatus.insets = new Insets(10, 10, 10, 10);
     gbc_lblStatus.gridheight = 1;
@@ -112,13 +112,13 @@ public class LOAGUI extends JApplet {
 
     Object[] possibilities = {"Black", "White"};
     String s = (String)JOptionPane.showInputDialog(
-        this,
-        "Which side would you like to play?\n",
-        "Customized Dialog",
-        JOptionPane.PLAIN_MESSAGE,
-        null,
-        possibilities,
-        "Black");
+            this,
+            "Which side would you like to play?\n",
+            "Customized Dialog",
+            JOptionPane.PLAIN_MESSAGE,
+            null,
+            possibilities,
+            "Black");
 
     //If a string was returned, say so.
     if (s.equals("White")) {

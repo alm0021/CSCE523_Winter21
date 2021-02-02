@@ -75,10 +75,10 @@ public class mnkBoard extends Board {
     board = new int[boardX][boardY];
     for (int x = 0; x < boardX; x++ ){
       for (int y = 0; y < boardY; y++ ) {
-      board[x][y] = EMPTY_SQUARE;
+        board[x][y] = EMPTY_SQUARE;
+      }
     }
-  }
-  to_move = PLAYER_BLACK;
+    to_move = PLAYER_BLACK;
   }
 
   /**
@@ -176,7 +176,7 @@ public class mnkBoard extends Board {
   /**
    * endGame check. Check each row, column and diagonal for k in a row pieces. Then check
    * if all of the spaces are filled - in which case the game is a draw.
-   * 
+   *
    * @return
    */
   public int endGame() {
@@ -193,7 +193,7 @@ public class mnkBoard extends Board {
     // Now we need to check if there are empty positions, otherwise it is a draw
     for (int i = 0; i < boardX; ++i)
       for (int j = 0; j < boardY; ++j)
-        if (board[i][j] == EMPTY_SQUARE) 
+        if (board[i][j] == EMPTY_SQUARE)
           return GAME_CONTINUE;
 
     return GAME_DRAW;
@@ -269,7 +269,7 @@ public class mnkBoard extends Board {
       // We will compare current element with the previous
       for (int column = 1; column < boardX; ++column) {
         if (board[row][column] != EMPTY_SQUARE &&
-            board[row][column] == board[row][column-1])
+                board[row][column] == board[row][column-1])
           ++count;
         else
           count = 1;
@@ -297,7 +297,7 @@ public class mnkBoard extends Board {
       // We will compare current element with the previous
       for (int row = 1; row < boardY; ++row) {
         if (board[row][column] != EMPTY_SQUARE &&
-            board[row][column] == board[row-1][column])
+                board[row][column] == board[row-1][column])
           ++count;
         else
           count = 1;
@@ -327,7 +327,7 @@ public class mnkBoard extends Board {
         count = 1;
         for (int diag = 0; ((x+diag+1) < boardX && (y+diag+1) < boardY); diag++) {
           if ((board[x+diag][y+diag] != EMPTY_SQUARE) &&
-              (board[x+diag][y+diag] == board[x+diag+1][y+diag+1]))
+                  (board[x+diag][y+diag] == board[x+diag+1][y+diag+1]))
             count++;
           else
             count = 1;
@@ -344,7 +344,7 @@ public class mnkBoard extends Board {
         count = 1;
         for (int diag = 0; ((y-diag) > 0 && (x+diag+1) < boardX); diag++) {
           if ((board[x+diag][y-diag] != EMPTY_SQUARE) &&
-              (board[x+diag][y-diag] == board[x+diag+1][y-diag-1]))
+                  (board[x+diag][y-diag] == board[x+diag+1][y-diag-1]))
             count++;
           else
             count = 1;

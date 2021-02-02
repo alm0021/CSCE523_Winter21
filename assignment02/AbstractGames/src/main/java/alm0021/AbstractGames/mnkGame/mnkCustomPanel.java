@@ -65,11 +65,11 @@ public class mnkCustomPanel extends JPanel {
       startTime = System.currentTimeMillis() - startTime;
       board.makeMove(move);
       lgui.statusTextArea.append(computer + " Move: " + move.toString()
-          + "\n");
+              + "\n");
       lgui.statusTextArea.append("Time: " + (float) (startTime) / 1000.0
-          + " s\n");
+              + " s\n");
       System.out.println("Search Time: " + (startTime) / 1000.0
-          + "s  Best move: " + move.toString() + "\n");
+              + "s  Best move: " + move.toString() + "\n");
       lgui.status.setText("Your move as " + getPlayer() + ".");
       lastmove = move;
 
@@ -172,7 +172,7 @@ public class mnkCustomPanel extends JPanel {
         board.makeMove(m);
         user_move = NOT_MOVE;
         lgui.statusTextArea.append(player + " Move: " + m.toString()
-            + "\n");
+                + "\n");
         lgui.status.setText("Computer's move as " + computer + ".");
         lastmove = m;
         if (board.endGame() != mnkBoard.GAME_CONTINUE) {
@@ -257,10 +257,10 @@ public class mnkCustomPanel extends JPanel {
       for (int y = 0; y < board.getBoardY(); y++) {
         if (board.getPlayerAtLocation(x, y) == mnkBoard.PLAYER_BLACK)
           offscreen.drawImage(black_piece, (x) * 35 + 11,
-              (7 - y) * 35 + 11, 30, 30, this);
+                  (7 - y) * 35 + 11, 30, 30, this);
         if (board.getPlayerAtLocation(x, y) == mnkBoard.PLAYER_WHITE)
           offscreen.drawImage(white_piece, (x) * 35 + 11,
-              (7 - y) * 35 + 11, 30, 30, this);
+                  (7 - y) * 35 + 11, 30, 30, this);
       }
     // If the player is moving, show them their possible moves.
     if (user_move == PICK_MOVE) {

@@ -30,23 +30,23 @@ public class LOAMove extends Move {
      * @param desc Move description.
      */
     public LOAMove(String desc) {
-      if (desc.length() != 5 || desc.charAt(2) != '-')
-        if ( !desc.contentEquals(new StringBuffer("NONE")))
-          throw new IllegalArgumentException("bad move format");
-      if (desc.contentEquals(new StringBuffer("NONE"))) {
-        x1 = 0;
-        y1 = 0;
-        x2 = 0;
-        y2 = 0;
-      } else {
-        x1 = move_letter(desc.charAt(0));
-        y1 = move_digit(desc.charAt(1));
-        x2 = move_letter(desc.charAt(3));
-        y2 = move_digit(desc.charAt(4));
-      }
-      value = 0.0;
-      captured = -1;
-      next = null;
+        if (desc.length() != 5 || desc.charAt(2) != '-')
+            if ( !desc.contentEquals(new StringBuffer("NONE")))
+                throw new IllegalArgumentException("bad move format");
+        if (desc.contentEquals(new StringBuffer("NONE"))) {
+            x1 = 0;
+            y1 = 0;
+            x2 = 0;
+            y2 = 0;
+        } else {
+            x1 = move_letter(desc.charAt(0));
+            y1 = move_digit(desc.charAt(1));
+            x2 = move_letter(desc.charAt(3));
+            y2 = move_digit(desc.charAt(4));
+        }
+        value = 0.0;
+        captured = -1;
+        next = null;
     }
 
     /**
@@ -59,12 +59,12 @@ public class LOAMove extends Move {
      * @param y2 Ending row.
      */
     public LOAMove(int x1, int y1, int x2, int y2) {
-      this.x1 = x1;
-      this.y1 = y1;
-      this.x2 = x2;
-      this.y2 = y2;
-      this.value = 0.0;
-      this.captured = -1;
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+        this.value = 0.0;
+        this.captured = -1;
     }
 
     /**
@@ -78,12 +78,12 @@ public class LOAMove extends Move {
      * @param value Hashed value from transpositionTable.
      */
     public LOAMove(int x1, int y1, int x2, int y2, double value) {
-      this.x1 = x1;
-      this.y1 = y1;
-      this.x2 = x2;
-      this.y2 = y2;
-      this.value = value;
-      this.captured = -1;
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+        this.value = value;
+        this.captured = -1;
     }
 
     /**
@@ -97,13 +97,13 @@ public class LOAMove extends Move {
      * @param p Piece
      */
     public LOAMove(int x1, int y1, int x2, int y2, double value, LOAPiece p) {
-      this.x1 = x1;
-      this.y1 = y1;
-      this.x2 = x2;
-      this.y2 = y2;
-      this.value = value;
-      this.piece = p;
-      this.captured = -1;
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+        this.value = value;
+        this.piece = p;
+        this.captured = -1;
     }
 
     /**
@@ -113,17 +113,17 @@ public class LOAMove extends Move {
      * @return Integer [0..6]
      */
     private static int move_letter(char ch) {
-      switch (ch) {
-        case 'a': return 0;
-        case 'b': return 1;
-        case 'c': return 2;
-        case 'd': return 3;
-        case 'e': return 4;
-        case 'f': return 5;
-        case 'g': return 6;
-        case 'h': return 7;
-      }
-      throw new IllegalArgumentException("bad move letter");
+        switch (ch) {
+            case 'a': return 0;
+            case 'b': return 1;
+            case 'c': return 2;
+            case 'd': return 3;
+            case 'e': return 4;
+            case 'f': return 5;
+            case 'g': return 6;
+            case 'h': return 7;
+        }
+        throw new IllegalArgumentException("bad move letter");
     }
 
     /**
@@ -133,17 +133,17 @@ public class LOAMove extends Move {
      * @return Integer [0..6].
      */
     private static int move_digit(char ch) {
-      switch (ch) {
-        case '1': return 0;
-        case '2': return 1;
-        case '3': return 2;
-        case '4': return 3;
-        case '5': return 4;
-        case '6': return 5;
-        case '7': return 6;
-        case '8': return 7;
-      }
-      throw new IllegalArgumentException("bad move digit");
+        switch (ch) {
+            case '1': return 0;
+            case '2': return 1;
+            case '3': return 2;
+            case '4': return 3;
+            case '5': return 4;
+            case '6': return 5;
+            case '7': return 6;
+            case '8': return 7;
+        }
+        throw new IllegalArgumentException("bad move digit");
     }
 
     /**
@@ -154,19 +154,19 @@ public class LOAMove extends Move {
      * @return String representing a move location.
      */
     private static String square_name(int x, int y) {
-      if (y < 0 || y >= 8)
-        throw new IllegalArgumentException("bad y coordinate in square");
-      switch(x + 1) {
-        case 1: return "a" + (y + 1);
-        case 2: return "b" + (y + 1);
-        case 3: return "c" + (y + 1);
-        case 4: return "d" + (y + 1);
-        case 5: return "e" + (y + 1);
-        case 6: return "f" + (y + 1);
-        case 7: return "g" + (y + 1);
-        case 8: return "h" + (y + 1);
-      }
-      throw new IllegalArgumentException("bad x coordinate in square");
+        if (y < 0 || y >= 8)
+            throw new IllegalArgumentException("bad y coordinate in square");
+        switch(x + 1) {
+            case 1: return "a" + (y + 1);
+            case 2: return "b" + (y + 1);
+            case 3: return "c" + (y + 1);
+            case 4: return "d" + (y + 1);
+            case 5: return "e" + (y + 1);
+            case 6: return "f" + (y + 1);
+            case 7: return "g" + (y + 1);
+            case 8: return "h" + (y + 1);
+        }
+        throw new IllegalArgumentException("bad x coordinate in square");
     }
 
     /**
@@ -177,14 +177,14 @@ public class LOAMove extends Move {
      * @param m Move
      */
     public void copy(LOAMove m) {
-      x1 = m.x1;
-      y1 = m.y1;
-      x2 = m.x2;
-      y2 = m.y2;
-      piece = m.piece;
-      captured_piece = m.captured_piece;
-      value = m.value;
-      next = m.next;
+        x1 = m.x1;
+        y1 = m.y1;
+        x2 = m.x2;
+        y2 = m.y2;
+        piece = m.piece;
+        captured_piece = m.captured_piece;
+        value = m.value;
+        next = m.next;
     }
 
     /**
@@ -194,34 +194,34 @@ public class LOAMove extends Move {
      * @return boolean
      */
     public boolean equals(LOAMove m) {
-      if (m == null)
+        if (m == null)
+            return false;
+        if (m.x1 == x1 && m.y1 == y1 && m.x2 == x2 && m.y2 == y2)
+            return true;
         return false;
-      if (m.x1 == x1 && m.y1 == y1 && m.x2 == x2 && m.y2 == y2)
-        return true;
-      return false;
     }
 
-  /**
-   * Converts this Move into a String for printing
-   * @return The move as a string
-   */
-  public String toString() {
-    return square_name(x1, y1) + "-" + square_name(x2, y2) + ": " + value;
-  }
+    /**
+     * Converts this Move into a String for printing
+     * @return The move as a string
+     */
+    public String toString() {
+        return square_name(x1, y1) + "-" + square_name(x2, y2) + ": " + value;
+    }
 
-  /**
-   * Compares the from and to locations, returning true if the same.
-   *
-   * @param move
-   * @return boolean
-   */
-  public boolean equals(Move move) {
-    LOAMove m = (LOAMove)move;
-    if (m == null)
-      return false;
-    if (m.x1 == x1 && m.y1 == y1 && m.x2 == x2 && m.y2 == y2)
-      return true;
-    return false;
-  }
+    /**
+     * Compares the from and to locations, returning true if the same.
+     *
+     * @param move
+     * @return boolean
+     */
+    public boolean equals(Move move) {
+        LOAMove m = (LOAMove)move;
+        if (m == null)
+            return false;
+        if (m.x1 == x1 && m.y1 == y1 && m.x2 == x2 && m.y2 == y2)
+            return true;
+        return false;
+    }
 
 }

@@ -15,7 +15,7 @@ public abstract class Board {
   public abstract Move generateMoves();
 
   // Move this to a GUI interface:
-   // This method should return all of the possible moves for a provided subspace of the game state
+  // This method should return all of the possible moves for a provided subspace of the game state
   //public abstract Move generateMovesFromLocation();
 
   /**

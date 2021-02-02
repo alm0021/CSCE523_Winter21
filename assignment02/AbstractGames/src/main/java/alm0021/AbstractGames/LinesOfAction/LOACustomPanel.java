@@ -71,11 +71,11 @@ public class LOACustomPanel extends JPanel {
       startTime = System.currentTimeMillis() - startTime;
       board.makeMove(move);
       lgui.statusTextArea.append(computer + " Move: " + move.toString()
-          + "\n");
+              + "\n");
       lgui.statusTextArea.append("Time: " + (float) (startTime) / 1000.0
-          + " s\n");
+              + " s\n");
       System.out.println("Search Time: " + (startTime) / 1000.0
-          + "s  Best move: " + move.toString() + "\n");
+              + "s  Best move: " + move.toString() + "\n");
       lgui.status.setText("Your move as " + getPlayer() + ".");
       lastmove = move;
 
@@ -208,7 +208,7 @@ public class LOACustomPanel extends JPanel {
               board.makeMove(moves);
               user_move = NOT_MOVE;
               lgui.statusTextArea.append(player + " Move: " + moves.toString()
-                  + "\n");
+                      + "\n");
               lgui.status.setText("Computer's move as " + computer + ".");
               lastmove = moves;
               if (board.endGame() != LOABoard.GAME_CONTINUE) {
@@ -298,8 +298,8 @@ public class LOACustomPanel extends JPanel {
     if (lastmove != null) {
       offscreen.setColor(Color.yellow);
       offscreen.drawLine(lastmove.x1 * 35 + 25,
-          (7 - lastmove.y1) * 35 + 25, lastmove.x2 * 35 + 25,
-          (7 - lastmove.y2) * 35 + 25);
+              (7 - lastmove.y1) * 35 + 25, lastmove.x2 * 35 + 25,
+              (7 - lastmove.y2) * 35 + 25);
     }
 
     // Place each piece in the correct location.
@@ -307,10 +307,10 @@ public class LOACustomPanel extends JPanel {
       for (int y = 0; y < LOABoard.BOARD_SIZE; y++) {
         if (board.getPlayerAtLocation(x, y) == LOABoard.PLAYER_BLACK)
           offscreen.drawImage(black_piece, (x) * 35 + 11,
-              (7 - y) * 35 + 11, 30, 30, this);
+                  (7 - y) * 35 + 11, 30, 30, this);
         if (board.getPlayerAtLocation(x, y) == LOABoard.PLAYER_WHITE)
           offscreen.drawImage(white_piece, (x) * 35 + 11,
-              (7 - y) * 35 + 11, 30, 30, this);
+                  (7 - y) * 35 + 11, 30, 30, this);
       }
     // If the player is moving, show them their possible moves.
     if (user_move == WAIT2) {
@@ -318,7 +318,7 @@ public class LOACustomPanel extends JPanel {
       offscreen.setColor(Color.red);
       while (moves != null) {
         offscreen.drawLine(x1 * 35 + 25, (7 - y1) * 35 + 25,
-            moves.x2 * 35 + 25, (7 - moves.y2) * 35 + 25);
+                moves.x2 * 35 + 25, (7 - moves.y2) * 35 + 25);
         moves = (LOAMove)moves.next;
       }
     }

@@ -300,7 +300,7 @@ public class LOABoard extends Board {
 
   // Check the end game condition, return player, draw, or in progress
   public int endGame() {
-  //        if (game_state != GAME_OVER) // This isn't being caught.
+    //        if (game_state != GAME_OVER) // This isn't being caught.
     //          throw new Error("internal error: referee unfinished game");
     if (connected(PLAYER_BLACK))
       return PLAYER_BLACK;
@@ -349,9 +349,9 @@ public class LOABoard extends Board {
       for (LOAPiece plist2 = Connectlist; plist2 != null && !connection;
            plist2 = plist2.next) {
         if ((p.x == plist2.x + 1 || p.x == plist2.x - 1
-            || p.x == plist2.x)
-            && (p.y == plist2.y || p.y == plist2.y + 1
-            || p.y == plist2.y - 1)) {
+                || p.x == plist2.x)
+                && (p.y == plist2.y || p.y == plist2.y + 1
+                || p.y == plist2.y - 1)) {
           plist = plist.next;
           p.next = Connectlist;
           Connectlist = p;
@@ -364,9 +364,9 @@ public class LOABoard extends Board {
           for (LOAPiece plist2 = Connectlist; plist2 != null && !connection;
                plist2 = plist2.next) {
             if ((p.x == plist2.x + 1 || p.x == plist2.x - 1
-                || p.x == plist2.x)
-                && (p.y == plist2.y || p.y == plist2.y + 1
-                || p.y == plist2.y - 1)) {
+                    || p.x == plist2.x)
+                    && (p.y == plist2.y || p.y == plist2.y + 1
+                    || p.y == plist2.y - 1)) {
               tracker.next = p.next;
               p.next = Connectlist;
               Connectlist = p;
@@ -653,8 +653,8 @@ public class LOABoard extends Board {
     if (++number == 6)
       return 3;
     if (number == 2 && x >= 0 && x < (BOARD_SIZE-1) && y >= 0 && y < (BOARD_SIZE-1)
-        && (square[x][y] == side && square[x + 1][y + 1] == side
-        || square[x + 1][y] == side && square[x][y + 1] == side))
+            && (square[x][y] == side && square[x + 1][y + 1] == side
+            || square[x + 1][y] == side && square[x][y + 1] == side))
       return 5;
     return number;
   }
@@ -672,8 +672,8 @@ public class LOABoard extends Board {
     if (--number == 4)
       return 1;
     if (number == 2 && x >= 0 && x < (BOARD_SIZE-1) && y >= 0 && y < (BOARD_SIZE-1)
-        && (square[x][y] == side && square[x + 1][y + 1] == side
-        || square[x + 1][y] == side && square[x][y + 1] == side))
+            && (square[x][y] == side && square[x + 1][y + 1] == side
+            || square[x + 1][y] == side && square[x][y + 1] == side))
       return 5;
     return number;
   }
@@ -740,7 +740,7 @@ public class LOABoard extends Board {
     if ( checker_of(side,x,y) )
       counter++;
     if (counter == 2 && ((checker_of(side,x,y) && checker_of(side,x-1,y-1))
-        || (checker_of(side,x-1,y) && checker_of(side,x,y-1))))
+            || (checker_of(side,x-1,y) && checker_of(side,x,y-1))))
       counter = 5;
     return counter;
   }

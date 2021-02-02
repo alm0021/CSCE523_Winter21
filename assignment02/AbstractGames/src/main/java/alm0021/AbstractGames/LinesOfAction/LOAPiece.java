@@ -18,21 +18,21 @@ public class LOAPiece {
 
     // Constructor
     LOAPiece(int X, int Y, int own) {
-      x = X;
-      y = Y;
-      owner = own;
-      next = null;
+        x = X;
+        y = Y;
+        owner = own;
+        next = null;
     }
 
     // Constructor
     LOAPiece(int X, int Y, int own, LOAPiece n, LOAPiece p) {
-      x = X;
-      y = Y;
-      owner = own;
-      next = n;
-      prev = p;
-      if (next != null)
-        next.prev = this;
+        x = X;
+        y = Y;
+        owner = own;
+        next = n;
+        prev = p;
+        if (next != null)
+            next.prev = this;
     }
 
 }

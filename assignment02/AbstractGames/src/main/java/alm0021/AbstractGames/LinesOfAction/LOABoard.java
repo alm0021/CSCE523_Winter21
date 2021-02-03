@@ -7,7 +7,7 @@ import alm0021.AbstractGames.*;
  */
 public class LOABoard extends Board {
 
-  static final int BOARD_SIZE = 8;
+  static final int BOARD_SIZE = 5;
   static final int MOVE_DRAW_LIMIT = 100; // If the game is this long, consider it a draw. Muat be less that MAX_DEPTH - the search depth
 
   static final int EMPTY_SQUARE = -1;

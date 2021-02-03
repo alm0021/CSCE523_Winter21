@@ -1,3 +1,9 @@
+/**
+ * Used the following sources:
+ * https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-3-tic-tac-toe-ai-finding-optimal-move/
+ */
+
+
 package alm0021.AbstractGames;
 
 

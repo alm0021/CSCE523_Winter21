@@ -128,8 +128,8 @@ public class MinimaxSearch<BOARD extends Board, MOVE extends Move> implements Se
     }
 
     //Depth check
-    if(depth > this.maxDepth){
-      return 0;
+    if(depth < 0){
+      return gameOver();
     }
 
     // If player is BLACK, select MAX value Move

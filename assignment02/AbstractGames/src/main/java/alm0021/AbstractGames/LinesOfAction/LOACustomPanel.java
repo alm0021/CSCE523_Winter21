@@ -53,8 +53,8 @@ public class LOACustomPanel extends JPanel {
    */
   private void initializeGame() {
     board = new LOABoard(); // Initialize the board with the SBE
-    //search = new MinimaxSearch<LOABoard, LOAMove>();
-    search = new MinimaxAlphaBetaSearch<LOABoard, LOAMove>();
+    search = new MinimaxSearch<LOABoard, LOAMove>();
+    //search = new MinimaxAlphaBetaSearch<LOABoard, LOAMove>();
   }
   /**
    * The LOAWorker generates a thread that calls the WorkBoard bestMove

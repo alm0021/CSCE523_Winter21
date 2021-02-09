@@ -28,12 +28,12 @@ public class LOABoard extends Board {
   int forward_diag_count[] = new int [BOARD_SIZE+BOARD_SIZE-1];
   int back_diag_count[] = new int [BOARD_SIZE+BOARD_SIZE-1];
 
-  int quad[][][] = new int [2][BOARD_SIZE+1][BOARD_SIZE+1];
-  int quadcount[][] = new int [2][6];
+  public int quad[][][] = new int [2][BOARD_SIZE+1][BOARD_SIZE+1];
+  public int quadcount[][] = new int [2][6];
 
   // Maintaining the piece lists in addition to the boards really speeds up the
   // heuristic calculation.
-  LOAPiece piece_list[] = new LOAPiece[2];
+  public LOAPiece piece_list[] = new LOAPiece[2];
 
   private int game_state = GAME_CONTINUE;
   private int to_move = PLAYER_BLACK;
@@ -389,8 +389,8 @@ public class LOABoard extends Board {
    * @return evaluation of the state
    */
   public double heuristicEvaluation(){
-
-    return 0;
+    QuadEvaluator eval = new QuadEvaluator();
+    return eval.heuristicEvaluation(this);
   }
 
   /**
@@ -889,5 +889,56 @@ public class LOABoard extends Board {
         System.out.println("QUADCOUNTS DO NOT MATCH");
     }
   }
+
+  /**
+   * centerMass_horz - compute horizontal component of center of mass
+   *
+   * @param player int BLACK or WHITE
+   */
+  public int centerMass_horz(int player) {
+    int horz_sum = 0;
+    int pieceCount = 0;
+    LOAPiece p = player == PLAYER_BLACK ? this.piece_list[PLAYER_BLACK] : this.piece_list[PLAYER_WHITE];
+    if (player == PLAYER_BLACK) {
+      // Calculate BLACK horz-coordinate and vert-coordinate
+      for (; p != null; pieceCount++) {
+        horz_sum += p.x;
+        p = p.next;
+      }
+    } else {
+      // Calculate WHITE horz-coordinate and vert-coordinate
+      for (; p != null; pieceCount++) {
+        horz_sum += p.x;
+        p = p.next;
+      }
+    }
+    return horz_sum / pieceCount;
+  }
+
+  /**
+   * centerMass_vert - compute vertical component of center of mass
+   *
+   * @param player int BLACK or WHITE
+   */
+  public int centerMass_vert(int player) {
+    int vert_sum = 0;
+    int pieceCount = 0;
+    LOAPiece p = player == PLAYER_BLACK ? this.piece_list[PLAYER_BLACK] : this.piece_list[PLAYER_WHITE];
+    if (player == PLAYER_BLACK) {
+      // Calculate BLACK horz-coordinate and vert-coordinate
+      for (; p != null; pieceCount++) {
+        vert_sum += p.y;
+        p = p.next;
+      }
+    } else {
+      // Calculate WHITE horz-coordinate and vert-coordinate
+      for (; p != null; pieceCount++) {
+        vert_sum += p.y;
+        p = p.next;
+      }
+    }
+    return vert_sum / pieceCount;
+  }
+
 
 }

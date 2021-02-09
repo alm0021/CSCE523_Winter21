@@ -46,8 +46,8 @@ public class mnkCustomPanel extends JPanel {
    */
   public void initializeGame() {
     board = new mnkBoard(m, n, k); // Initialize the board with the SBE
-    search = new MinimaxSearch<mnkBoard, mnkMove>();
-    //search = new MinimaxAlphaBetaSearch<mnkBoard, mnkMove>();
+    //search = new MinimaxSearch<mnkBoard, mnkMove>();
+    search = new MinimaxAlphaBetaSearch<mnkBoard, mnkMove>();
   }
 
   /**
